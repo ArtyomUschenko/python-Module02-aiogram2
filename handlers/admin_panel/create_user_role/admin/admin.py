@@ -10,7 +10,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from keyboard.admin_panel_keyboard_back_to_main_menu import admin_panel_keyboard_back_to_main_menu
 
 from db_handler.user_role.create_admin import create_admin
-from db_handler.user_role.check_user_role import chek_db_user_role
+from db_handler.user_role.check_user_role import check_db_user_role
 
 class FSM_create_user_role_admin(StatesGroup):
     user_id = State()
@@ -27,7 +27,7 @@ async def load_user_id(message: types.Message, state: FSMContext):
 
 
     try:
-        check = await chek_db_user_role(user_id = int(message.text))
+        check = await check_db_user_role(user_id = int(message.text))
 
         if check == "admin":
             await state.finish()
@@ -70,6 +70,7 @@ async def load_user_name(message: types.Message, state: FSMContext):
         else:
             data["user_name"] = message.text
             await create_admin(user_id=int_data_user_id, user_name=data["user_name"])
+            await state.finish()
             await bot.send_message(message.from_user.id,
                                    f"Администратор успешно добавлен \n  ID пользователя: {int_data_user_id} \n Имя пользователя: {data['user_name']}",
                                    reply_markup=admin_panel_keyboard_back_to_main_menu)

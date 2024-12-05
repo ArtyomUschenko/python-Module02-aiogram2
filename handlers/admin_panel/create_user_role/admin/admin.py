@@ -51,7 +51,7 @@ async def load_user_id(message: types.Message, state: FSMContext):
 
                 else:
                     await FSM_create_user_role_admin.next()
-                    await bot.send_message(message.from_user.id, f"Администратор с ID {str_user_id} успешно создан\n Введите имя пользователя", reply_markup=admin_panel_keyboard_back_to_main_menu)
+                    await bot.send_message(message.from_user.id, f"Администратор с ID {str_user_id} успешно создан\n Введите имя пользователя")
 
     except ValueError:
         await state.finish()

@@ -20,7 +20,7 @@ class FSM_create_user_role_admin(StatesGroup):
 async def load_user_role_admin(callback_query: types.Message):
     await FSM_create_user_role_admin.user_id.set()
     await bot.delete_message(callback_query.from_user.id, message_id=callback_query.message.message_id)
-    await bot.send_message(callback_query.from_user.id, "Роль успешно выбрана \n Введите id пользователя")
+    await bot.send_message(callback_query.from_user.id, "Роль успешно выбрана \n Введите id пользователя", reply_markup=admin_panel_keyboard_back_to_main_menu)
 
 @dp.message_handler(state=FSM_create_user_role_admin.user_id)
 async def load_user_id(message: types.Message, state: FSMContext):
@@ -51,11 +51,11 @@ async def load_user_id(message: types.Message, state: FSMContext):
 
                 else:
                     await FSM_create_user_role_admin.next()
-                    await bot.send_message(message.from_user.id, f"Администратор с ID {str_user_id} успешно создан\n Введите имя пользователя")
+                    await bot.send_message(message.from_user.id, f"Администратор с ID {str_user_id} успешно создан\n Введите имя пользователя", reply_markup=admin_panel_keyboard_back_to_main_menu)
 
     except ValueError:
         await state.finish()
-        await bot.send_message(message.from_user.id, f"ID должен содержать только цифры \n Вы вели следующий ID: {str_user_id}", reply_markup=admin_panel_keyboard_back_to_main_menu)
+        await bot.send_message(message.from_user.id, f"ID должен содержать только цифры \n Вы вели следующий ID: {message.text}", reply_markup=admin_panel_keyboard_back_to_main_menu)
 
 
 @dp.message_handler(state=FSM_create_user_role_admin.user_name)

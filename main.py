@@ -20,6 +20,8 @@ from handlers.admin_panel.change_post.state_change_post.post_image import *
 from handlers.admin_panel.change_post.state_change_post.post_name import *
 from handlers.admin_panel.change_post.state_change_post.post_description import *
 from handlers.admin_panel.change_post.state_change_post.post_tag import *
+from handlers.admin_panel.delete_post.delete_post import *
+from handlers.admin_panel.delete_post.state_delete_post.post_id import *
 
 
 

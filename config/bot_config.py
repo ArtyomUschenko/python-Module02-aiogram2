@@ -10,7 +10,7 @@ USER = config["user"]
 PASSWORD = config["password"]
 DB = config["database"]
 HOST = config["host"]
-
+CHAT_ID = config["chat_id"]
 
 logging.basicConfig(level=logging.INFO) #set logging level
 

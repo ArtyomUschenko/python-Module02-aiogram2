@@ -14,6 +14,12 @@ from handlers.admin_panel.create_posts.states_post.post_name import *
 from handlers.admin_panel.create_posts.states_post.post_tag import *
 from handlers.admin_panel.create_posts.states_post.post_description import *
 from handlers.admin_panel.create_posts.states_post.post_image import *
+from handlers.admin_panel.change_post.get_post import *
+from handlers.admin_panel.change_post.state_change_post.post_id import *
+from handlers.admin_panel.change_post.state_change_post.post_image import *
+from handlers.admin_panel.change_post.state_change_post.post_name import *
+from handlers.admin_panel.change_post.state_change_post.post_description import *
+from handlers.admin_panel.change_post.state_change_post.post_tag import *
 
 
 

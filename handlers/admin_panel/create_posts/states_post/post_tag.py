@@ -11,7 +11,7 @@ import datetime
 
 
 @dp.message_handler(state=FSM_create_post.post_tag)
-async def post_image(message: types.Message, state: FSMContext):
+async def post_tag(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['post_tag'] = message.html_text
         await state.finish()

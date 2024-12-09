@@ -3,7 +3,10 @@ from config.bot_config import dp, bot, ADMIN
 from keyboard.admin_panel_keyboard_main_menu import admin_panel_keyboard_main_menu
 from keyboard.content_manager_keyboard_main_menu import content_manager_keyboard_main_menu
 from db_handler.user_role.check_user_role import check_db_user_role
+from middlewares.throttling.rate_limit.rate_limit import rate_limit
 
+
+@rate_limit(limit=10, key='/start')
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
     user_id = int(message.from_user.id)

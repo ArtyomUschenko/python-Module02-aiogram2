@@ -26,9 +26,11 @@ from handlers.admin_panel.publish_post.publish_post import *
 from handlers.admin_panel.publish_post.state_publish_post.post_id import *
 from handlers.admin_panel.check_post.check_post import *
 from handlers.admin_panel.check_post.state_check_post.post_id import *
+from middlewares.throttling.thottling import ThrottlingMiddleware
 
 
 
 
 if __name__ == '__main__':
+    dp.middleware.setup(ThrottlingMiddleware())
     executor.start_polling(dp, skip_updates=True)

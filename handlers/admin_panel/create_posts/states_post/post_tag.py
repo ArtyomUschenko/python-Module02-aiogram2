@@ -37,5 +37,6 @@ async def post_tag(message: types.Message, state: FSMContext):
                             f"Вы успешно создали пост!\n", reply_markup=admin_panel_keyboard_back_to_main_menu, parse_mode="HTML"
                              )
 
-        await bot.send_photo(CHAT_ID, photo=post_image, caption=f"{post_name}\n\n"
-                             f"{post_description}", parse_mode="HTML")
+
+        # await bot.send_photo(CHAT_ID, photo=post_image, caption=f"{post_name}\n\n"
+        #                      f"{post_description}", parse_mode="HTML") # Публикация поста напрямую, без базы данных
